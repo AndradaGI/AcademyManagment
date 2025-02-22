@@ -1,0 +1,28 @@
+﻿@model AcademyManagement.Models.Academy
+
+@{
+    ViewData["Title"] = "Create Academy";
+}
+
+<div class="container mt-4">
+    <h2>Create New Academy</h2>
+
+    <form asp-controller="Academies" asp-action="Create" method="post" class="mt-3">
+        <div class="mb-3">
+            <label asp-for="Name" class="form-label">Name</label>
+            <input asp-for="Name" class="form-control" required />
+            <span asp-validation-for="Name" class="text-danger"></span>
+        </div>
+        <div class="mb-3">
+            <label asp-for="Address" class="form-label">Address</label>
+            <input asp-for="Address" class="form-control" required />
+            <span asp-validation-for="Address" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-success">Create</button>
+        <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

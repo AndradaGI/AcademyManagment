@@ -1,0 +1,46 @@
+﻿@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+@if (ViewBag.Error != null)
+{
+    <p style="color: red">@ViewBag.Error</p>
+}
+
+<form method="post">
+    <label>Email:</label>
+    <input type="email" name="email" required />
+
+    <label>Password:</label>
+    <input type="password" name="password" required />
+
+    <button type="submit">Login</button>
+</form>
+
+
+@* @model AcademyManagment.Models.LoginViewModel *@
+
+@* <h2>Autentificare</h2> *@
+
+@* <form asp-action="Login" method="post"> *@
+@*     <div> *@
+@*         <label asp-for="Email"></label> *@
+@*         <input asp-for="Email" class="form-control" /> *@
+@*         <span asp-validation-for="Email"></span> *@
+@*     </div> *@
+
+@*     <div> *@
+@*         <label asp-for="Password"></label> *@
+@*         <input asp-for="Password" type="password" class="form-control" /> *@
+@*         <span asp-validation-for="Password"></span> *@
+@*     </div> *@
+
+@*     <div> *@
+@*         <input asp-for="RememberMe" /> *@
+@*         <label asp-for="RememberMe">Ține-mă minte</label> *@
+@*     </div> *@
+
+@*     <button type="submit" class="btn btn-primary">Autentificare</button> *@
+@* </form> *@

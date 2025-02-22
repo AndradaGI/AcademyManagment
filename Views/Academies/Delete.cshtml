@@ -1,0 +1,22 @@
+﻿@model AcademyManagement.Models.Academy
+
+@{
+    ViewData["Title"] = "Delete Academy";
+}
+
+<div class="container mt-4">
+    <h2>Are you sure you want to delete this academy?</h2>
+
+    <div class="card mt-3 border-danger shadow">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text"><strong>Address:</strong> @Model.Address</p>
+
+            <form asp-action="Delete" method="post">
+                <input type="hidden" asp-for="Id" />
+                <button type="submit" class="btn btn-danger">Delete</button>
+                <a asp-action="Index" class="btn btn-secondary">Cancel</a>
+            </form>
+        </div>
+    </div>
+</div>

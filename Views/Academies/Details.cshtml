@@ -1,0 +1,26 @@
+﻿@model AcademyManagement.Models.Academy
+
+@{
+    ViewData["Title"] = "Academy Details";
+}
+
+<div class="container mt-4">
+    <h2>Academy Details</h2>
+
+    <div class="card mt-3 shadow">
+        <div class="card-body">
+            <h5 class="card-title">@Model.Name</h5>
+            <p class="card-text"><strong>Address:</strong> @Model.Address</p>
+
+            <h6>Courses:</h6>
+            <ul class="list-group">
+                @foreach (var course in Model.Courses)
+                {
+                    <li class="list-group-item">@course.Title</li>
+                }
+            </ul>
+
+            <a asp-action="Index" class="btn btn-primary mt-3">Back to List</a>
+        </div>
+    </div>
+</div>

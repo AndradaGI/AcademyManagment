@@ -1,0 +1,51 @@
+﻿@model IEnumerable<AcademyManagement.Models.Academy>
+
+@{
+    ViewData["Title"] = "Academies";
+}
+
+<div class="container mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-3">
+        <h2>Academies</h2>
+        <a asp-action="Create" class="btn btn-success">+ Add New Academy</a>
+    </div>
+
+    @if (!Model.Any())
+    {
+        <p class="text-muted">No academies available.</p>
+    }
+    else
+    {
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Address</th>
+                    <th>Courses</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var academy in Model)
+                {
+                    <tr>
+                        <td>@academy.Name</td>
+                        <td>@academy.Address</td>
+                        <td>
+                            @foreach (var course in academy.Courses)
+                            {
+                                <a href="@Url.Action("Index", new { courseId = course.Id })" class="btn btn-sm btn-info">@course.Title</a>
+                            }
+                        </td>
+                        <td>
+                            @* <a href="@Url.Action("Select", new { id = academy.Id })" class="btn btn-sm btn-secondary">Select</a> *@
+                            <a href="@Url.Action("Details", new { id = academy.Id })" class="btn btn-sm btn-primary">Details</a>
+                            <a href="@Url.Action("Edit", new { id = academy.Id })" class="btn btn-sm btn-warning">Edit</a>
+                            <a href="@Url.Action("Delete", new { id = academy.Id })" class="btn btn-sm btn-danger">Delete</a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+</div>

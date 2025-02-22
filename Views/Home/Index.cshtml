@@ -1,0 +1,23 @@
+﻿@model IEnumerable<AcademyManagement.Models.Academy>
+
+<h1>Academies</h1>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Address</th>
+        <th>Actions</th>
+    </tr>
+    @foreach (var academy in Model)
+    {
+        <tr>
+            <td>@academy.Name</td>
+            <td>@academy.Address</td>
+            <td>
+                <a href="@Url.Action("Select", new { id = academy.Id })">Select</a> |
+                <a href="@Url.Action("Edit", new { id = academy.Id })">Edit</a> |
+                <a href="@Url.Action("Details", new { id = academy.Id })">Details</a> |
+                <a href="@Url.Action("Delete", new { id = academy.Id })">Delete</a>
+            </td>
+        </tr>
+    }
+</table>
